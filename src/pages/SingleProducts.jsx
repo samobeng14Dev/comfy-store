@@ -15,6 +15,7 @@ const SingleProducts = () => {
 	const dollarsAmount = formatPrice(price);
 	const [productColor, setProductColor] = useState(colors[0]);
 	const [amount, setAmount] = useState(1);
+
 	const handleAmount = () => {
 		setAmount(parseInt(e.target.value));
 	};
