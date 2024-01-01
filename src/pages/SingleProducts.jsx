@@ -30,6 +30,7 @@ const SingleProducts = () => {
 		price,
 		productColor,
 		company,
+		amount,
 	};
 	const addToCart = () => {
 		dispatch(addItem({ product: cartProduct }));

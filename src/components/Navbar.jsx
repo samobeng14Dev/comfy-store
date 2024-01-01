@@ -1,33 +1,16 @@
 import { BsCart3, BsMoonFill, BsSunFill } from "react-icons/bs";
 import { FaBarsStaggered } from "react-icons/fa6";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import NavLinks from "./NavLinks";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { toggleTheme } from "../features/user/userSlice";
 
-const themes = {
-	winter: "winter",
-	sunset: "sunset",
-	forest: "forest",
-};
-// get themes from localStorage
-const getThemesFromLocalStorage = () => {
-	return localStorage.getItem("theme") || themes.winter;
-};
 const Navbar = () => {
-	const [theme, setTheme] = useState(getThemesFromLocalStorage());
+	const dispatch = useDispatch();
 	const handleTheme = () => {
-		const { winter, sunset, forest } = themes;
-
-		const newTheme =
-			theme === winter ? forest : theme === forest ? sunset : winter;
-
-		setTheme(newTheme);
+		dispatch(toggleTheme());
 	};
-	useEffect(() => {
-		document.documentElement.setAttribute("data-theme", theme);
-		localStorage.setItem("theme", theme);
-	}, [theme]);
+
 	const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
 	return (
 		<nav className='bg-base-200'>
