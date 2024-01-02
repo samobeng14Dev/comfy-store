@@ -15,6 +15,7 @@ const NavLinks = () => {
 		<>
 			{links.map((link) => {
 				const { id, url, text } = link;
+				//if there is no user remove checkout and orders page
 				if ((url === "checkout" || url === "orders") && !user) return null;
 				return (
 					<li key={id}>
