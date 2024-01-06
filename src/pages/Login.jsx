@@ -25,6 +25,7 @@ export const action =
 		}
 	};
 const Login = () => {
+	// login as a guest
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const loginAsGuestUser = async () => {
